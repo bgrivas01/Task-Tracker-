@@ -21,7 +21,12 @@ public class TaskRepository {
 
     
     public void addTask(String description) throws StreamWriteException, DatabindException, IOException{
-
+        //this should increment our ids as we make them(even if we restart the program) 
+        int newId = tasks.stream().
+                        mapToInt(Task::getId)
+                        .max()
+                        .orElse(0)+1;
+        
         Task task = new Task(1, description);
         if (file.exists() && file.length() > 0) {
             tasks = objectMapper.readValue(file, new TypeReference<List<Task>>() {});  
