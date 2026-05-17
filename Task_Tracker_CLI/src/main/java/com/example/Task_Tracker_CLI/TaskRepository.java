@@ -34,6 +34,16 @@ public class TaskRepository {
             objectMapper.writeValue(file, tasks); //this is what also creates our json file if it doesnt exist
         
     }
+    //this will allow me to get a certain task by id
+    public String getTask(Int id){
+        return //i will return a string, specifically the description 
+    }
+
+    //this will alow me to delete a certain taks by using its id
+    public void deleteTask(Int id){
+        
+
+    }
 }
 
   
